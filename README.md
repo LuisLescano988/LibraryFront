@@ -1,11 +1,10 @@
-# React + Vite
-
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Using Tailwind, redux, react-router-dom, and axios also.
 
-1st Step: clone the repository.
+Step 1: clone the repository.
 
-2nd Step: write in cli "npm install".
+Step 2: write in cli "npm install".
 
-3rd Step: wirte in cli "npm run dev".
+Step 3: wirte in cli "npm run dev".
 
-4th Step: open web browser in "http://localhost:5174/".
+Step 4: open web browser in the local url provided by vite in the terminal.
