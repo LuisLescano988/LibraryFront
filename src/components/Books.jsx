@@ -48,13 +48,13 @@ const Books = () => {
    }, []);
 
   return(
-   <div className="">
-    <div className=" grid grid-cols-5 gap-4">
+    <div className="">
+    <div className=" grid grid-cols-5 gap-4 mx-6">
       {currentBooks.map((book) => (
         <Book
-        key={book.id}
-        id={book.id}
-        title={book.title}
+          key={book.id}
+          id={book.id}
+          title={book.title}
         />
       ))}
     </div>
@@ -63,18 +63,18 @@ const Books = () => {
         {totalPages < 1 ? (
           <button className=" hover:text-white">0</button>
         ) : (
-          <div className="flex space-x-2">
-            <button onClick={handlerFirstPage} hidden={currentPage === 1 || currentPage === 2} className=" hover:text-white">First</button>
-            <button onClick={handlerPrevPage} hidden={currentPage === 1} className=" hover:text-white">{prevPage}</button>
-            <button disabled>{currentPage}</button>
-            <button onClick={handlerNextPage} hidden={currentPage === totalPages} className=" hover:text-white">{nextPage}</button>
-            <button onClick={handlerLastPage} className=" hover:text-white">Last</button>
+          <div className="flex space-x-2 mt-3">
+            <button onClick={handlerFirstPage} hidden={currentPage === 1 || currentPage === 2} className=" hover:text-white bg-slate-950 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded">First</button>
+            <button onClick={handlerPrevPage} hidden={currentPage === 1} className=" hover:text-white  bg-slate-950 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded">{prevPage}</button>
+            <button disabled className="  bg-slate-600 text-white font-semibold py-1 px-2 rounded">{currentPage}</button>
+            <button onClick={handlerNextPage} hidden={currentPage === totalPages} className=" hover:text-white  bg-slate-950 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded">{nextPage}</button>
+            <button onClick={handlerLastPage} className=" hover:text-white  bg-slate-950 hover:bg-blue-600 text-white font-semibold py-1 px-2 rounded">Last</button>
           </div>
         )
-      }
+        }
       </div>
     </div>
-   </div>
+  </div>
   )
 }
 

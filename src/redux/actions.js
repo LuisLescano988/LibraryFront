@@ -30,8 +30,9 @@ export const loginUser = (input) => async dispatch => {
     dispatch({
       type: LOGIN_USER,
       payload: res.data
-    });
-    localStorage.setItem('token',res.data.token)
+    })
+    window.localStorage.setItem('token',res.data.token);
+    dispatch(testToken(res.data.token));
   } catch (error) {
     console.log(error)
   }
@@ -41,7 +42,7 @@ export const testToken = (token) => async dispatch => {
   try {
     const res = await axios.get('http://127.0.0.1:8000/users/test_token/',
     {headers:{'Content-Type':'application/json', 'Authorization': ` Token ${token}`}});
-    dispatch({
+    return dispatch({
       type: TEST_TOKEN,
       payload: res.data
     })

@@ -48,37 +48,47 @@ function BookForm() {
     }
 
     return (
-       <form onSubmit={(event) => handlerSubmit(event)}>
-        <h1 className=" flex justify-center mb-2">Add a new book</h1>
-        <label>Title</label>
-        <input 
-        type="text" 
-        placeholder="Enter a title"
-        className=" mx-2"
-        value={input.title}
-        name = "title"
-        onChange={(event) => handlerChange(event)}
-        />
-        <label>Author</label>
-        <input
-        type="text"
-        placeholder="Enter an author name"
-        className=" mx-2"
-        value={input.author}
-        name="author"
-        onChange={(event) => handlerChange(event)}
-        />
-        <label>Year</label>
-        <input
-        type="number"
-        placeholder="Enter a publication year"
-        className=" mx-2"
-        value={input.publication_year}
-        name="publication_year"
-        onChange={(event) => handlerChange(event)}
-        />
-        <button type="submit" className=" bg-slate-950 text-white p-3">Post new book</button>
-       </form>
+        <div className=" flex">
+            <div className=" p-8 rounded shadow-lg">
+                <h1 className=" text-2xl font-semibold mb-4">Add a new book</h1>
+                <form onSubmit={(event) => handlerSubmit(event)} className=" flex flex-row">
+                    <div>
+                        <label className=" text-gray-600 mx-1">Title:</label>
+                        <input
+                            type="text"
+                            placeholder="Enter a title"
+                            className="  border rounded px-3 py-2 mx-2 hover:border-blue-500"
+                            value={input.title}
+                            name="title"
+                            onChange={(event) => handlerChange(event)}
+                        />
+                    </div>
+                    <div>
+                        <label className=" text-gray-600 mx-1">Author:</label>
+                        <input
+                            type="text"
+                            placeholder="Enter an author name"
+                            className=" border rounded px-3 py-2 mx-2 hover:border-blue-500"
+                            value={input.author}
+                            name="author"
+                            onChange={(event) => handlerChange(event)}
+                        />
+                    </div>
+                    <div>
+                        <label className=" text-gray-600 mx-1">Year:</label>
+                        <input
+                            type="number"
+                            placeholder="Enter a publication year"
+                            className=" border rounded px-3 py-2 mx-2 hover:border-blue-500"
+                            value={input.publication_year}
+                            name="publication_year"
+                            onChange={(event) => handlerChange(event)}
+                        />
+                    </div>
+                    <button type="submit" className=" bg-slate-950 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Post new book</button>
+                </form>
+            </div>
+        </div>
     )
 };
 

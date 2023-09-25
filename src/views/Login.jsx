@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser, testToken } from "../redux/actions";
@@ -16,11 +16,16 @@ function Login() {
         setInput({ ...input, [event.target.name]: event.target.value });
     };
 
-    function handlerSubmit(event) {
+    useEffect(()=>{
+        if(pass){
+            navigate('/home')
+        }
+    }, [pass, navigate])
+
+    async function handlerSubmit(event) {
         event.preventDefault();
         dispatch(loginUser(input))
-        dispatch(testToken(localStorage.getItem('token')),pass==true?navigate('/home'):navigate('/'))
-        
+        // dispatch(testToken(window.localStorage.getItem('token')))
         setInput({
             username: '',
             password: '',
