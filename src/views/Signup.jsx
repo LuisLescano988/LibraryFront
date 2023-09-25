@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { newUser } from "../redux/actions";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 function SignUp() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [input, setInput] = useState({
         username: '',
         password: '',
@@ -24,6 +25,7 @@ function SignUp() {
             password: '',
             email: ''
         })
+        navigate('/')
     }
 
     return (

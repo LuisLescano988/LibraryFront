@@ -1,7 +1,8 @@
 import{
     TEST_TOKEN,
     GET_ALL_BOOKS,
-    GET_BOOK_DETAIL
+    GET_BOOK_DETAIL,
+    EDIT_BOOK
 } from './actionTypes';
 
 const initialState = {
