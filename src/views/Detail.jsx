@@ -33,16 +33,11 @@ function Detail () {
     }
 
     return (
-        <div>
-            <div>
-                <button>
-                    <Link to="/home">Back to home</Link>
-                </button>
-            </div>
-            <div>
-                <h4>{bookDetail.title}</h4>
-                <h2>{bookDetail.author}</h2>
-                <h2>{bookDetail.publication_year}</h2>
+        <div className=" flex flex-col items-center mt-10">
+            <div className=" my-10">
+                <h4 className=" font-extrabold text-xl">Title: {bookDetail.title}</h4>
+                <h2>Author: {bookDetail.author}</h2>
+                <h2>Publication year: {bookDetail.publication_year}</h2>
             </div>
             <form onSubmit={(event) => handlerSubmit(event)} className=" flex flex-row">
                     <div>
@@ -78,8 +73,13 @@ function Detail () {
                             onChange={(event) => handlerChange(event)}
                         />
                     </div>
-                    <button type="submit" className=" bg-slate-950 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Post new book</button>
+                    <button type="submit" className=" bg-slate-950 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Edit book</button>
                 </form>
+            <div>
+                <button>
+                    <Link to="/home">Back to home</Link>
+                </button>
+            </div>
         </div>
     )
 };
