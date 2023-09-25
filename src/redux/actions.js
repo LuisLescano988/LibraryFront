@@ -5,7 +5,9 @@ import {
   TEST_TOKEN,
   GET_BOOK_DETAIL,
   GET_ALL_BOOKS,
-  POST_BOOK
+  POST_BOOK,
+  DELETE_BOOK,
+  EDIT_BOOK
 } from './actionTypes';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -95,6 +97,42 @@ export function getDetail(id) {
         });
       } else {
         console.error(`No se encontró un libro con el ID: ${id}`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export function editBook(id) {
+  return async function (dispatch) {
+    try {
+      var response = await axios.put('http://127.0.0.1:8000/library/all_books/'+id)
+      if (response.data) {
+        return dispatch({
+          type: EDIT_BOOK,
+          payload: response.data,
+        });
+      } else {
+        console.error(`Book with ID ${id} not found`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export function deleteBook(id) {
+  return async function (dispatch) {
+    try {
+      var response = await axios.delete('http://127.0.0.1:8000/library/all_books/'+id)
+      if (response.data) {
+        return dispatch({
+          type: DELETE_BOOK,
+          payload: response.data,
+        });
+      } else {
+        console.error(`Book with ID ${id} not found`);
       }
     } catch (error) {
       console.error(error);

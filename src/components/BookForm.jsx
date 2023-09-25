@@ -26,19 +26,20 @@ function BookForm() {
 
     function handlerSubmit(event) {
         event.preventDefault();
-        if (!input.title || !input.author || !input.publication_year) {
-            return alert("All fields are required")
-        } else if (!/^(16\d\d|20\d\d)*$/.test(input.publication_year)) {
-            return alert("Please enter a valid year between 1600 and the current year")
-        } else if (input.title.length < 2 || input.title.length > 40) {
-            return alert("Please enter a title between 2 and 40 characters in length.")
-        } else if (input.author.length < 2 || input.author.length > 40) {
-            return alert("Please enter an author name between 2 and 40 characters in length.")
-        } else if (!/^[a-zA-Z ]*$/.test(input.title)) {
-            return alert("Please write without numbers and symbols")
-        } else if (!/^[a-zA-Z ]*$/.test(input.author)) {
-            return alert("Please write without numbers and symbols")
-        } else dispatch(postNewBook(input));
+        // if (!input.title || !input.author || !input.publication_year) {
+        //     return alert("All fields are required")
+        // } else if (!/^(16\d\d|20\d\d)*$/.test(input.publication_year)) {
+        //     return alert("Please enter a valid year between 1600 and the current year")
+        // } else if (input.title.length < 2 || input.title.length > 40) {
+        //     return alert("Please enter a title between 2 and 40 characters in length.")
+        // } else if (input.author.length < 2 || input.author.length > 40) {
+        //     return alert("Please enter an author name between 2 and 40 characters in length.")
+        // } else if (!/^[a-zA-Z ]*$/.test(input.title)) {
+        //     return alert("Please write without numbers and symbols")
+        // } else if (!/^[a-zA-Z ]*$/.test(input.author)) {
+        //     return alert("Please write without numbers and symbols")
+        // } else 
+        dispatch(postNewBook(input));
         setInput({
             title: "",
             author: "",
