@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../redux/actions";
+import { loginUser, testToken } from "../redux/actions";
 
 function Login() {
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const pass = useSelector(state=>state.passed)
     const [input, setInput] = useState({
         username: '',
         password: '',
@@ -18,7 +19,8 @@ function Login() {
     function handlerSubmit(event) {
         event.preventDefault();
         dispatch(loginUser(input))
-        navigate('/home')
+        dispatch(testToken(localStorage.getItem('token')),pass==true?navigate('/home'):navigate('/'))
+        
         setInput({
             username: '',
             password: '',
