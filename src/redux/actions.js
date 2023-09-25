@@ -104,10 +104,11 @@ export function getDetail(id) {
   };
 };
 
-export function editBook(id) {
+export function editBook(body, id) {
   return async function (dispatch) {
     try {
-      var response = await axios.put('http://127.0.0.1:8000/library/all_books/'+id)
+      console.log(body)
+      var response = await axios.put('http://127.0.0.1:8000/library/all_books/'+id, body)
       if (response.data) {
         return dispatch({
           type: EDIT_BOOK,

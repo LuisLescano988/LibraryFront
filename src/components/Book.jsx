@@ -6,10 +6,6 @@ import { deleteBook, editBook } from "../redux/actions";
 function Book({ id, title, author }) {
     const dispatch = useDispatch()
 
-    function handlerEdit() {
-        dispatch(editBook(id))
-    }
-
     function handlerDelete() {
         dispatch(deleteBook(id))
     }
@@ -20,8 +16,7 @@ function Book({ id, title, author }) {
                 <h5 className=" text-black font-semibold text-2xl">{title}</h5>
             </Link>
             <h2>{author}</h2>
-            <button onClick={handlerEdit}>Edit</button>
-            <button onClick={handlerDelete}>X</button>
+            <button onClick={handlerDelete}>Delete book</button>
         </div>
     )
 };
