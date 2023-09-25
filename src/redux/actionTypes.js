@@ -1,2 +1,6 @@
 export const POST_NEW_USER = 'POST_NEW_USER'
 export const LOGIN_USER  = 'LOGIN_USER'
+export const TEST_TOKEN = 'TEST_TOKEN'
+export const GET_BOOK_DETAIL = 'GET_BOOK_DETAIL'
+export const GET_ALL_BOOKS = 'GET_ALL_BOOKS'
+export const POST_BOOK = 'POST_BOOK'
