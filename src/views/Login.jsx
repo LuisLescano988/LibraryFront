@@ -25,7 +25,6 @@ function Login() {
     async function handlerSubmit(event) {
         event.preventDefault();
         dispatch(loginUser(input))
-        // dispatch(testToken(window.localStorage.getItem('token')))
         setInput({
             username: '',
             password: '',

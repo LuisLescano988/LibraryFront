@@ -15,7 +15,7 @@ function Detail () {
 
     useEffect(() => {
         dispatch(getDetail(id));
-    }, [dispatch, handlerSubmit]);
+    }, []);
 
     function handlerChange(event) {
         setInput({ ...input, [event.target.name]: event.target.value });

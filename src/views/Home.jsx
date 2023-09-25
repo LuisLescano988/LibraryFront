@@ -1,7 +1,7 @@
-import React, { useEffect, Component, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { testToken } from "../redux/actions";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Books from "../components/Books";
 import BookForm from "../components/BookForm";
 
@@ -10,14 +10,21 @@ function Home() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const pass = useSelector(state => state.passed)
+    const [mounted, setMounted] = useState(false)
+    const books = useSelector(state => state.books)
+    const [query, setQuery] = useState("");
 
-    console.log(pass)
 
     useEffect(() => {
+        if (!mounted) {
+            setMounted(true)
+            return
+        }
         const token = window.localStorage.getItem('token')
         dispatch(testToken(token))
         if (pass != true) return navigate('/')
-    }, [])
+    }, [pass, mounted])
+
 
     function handlerLogOut() {
         window.localStorage.removeItem('token')

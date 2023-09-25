@@ -10,10 +10,6 @@ function BookForm() {
         publication_year: ""
     });
 
-    useEffect(() => {
-        dispatch(getAllBooks())
-    }, []);
-
     function handlerChange(event) {
         setInput({ ...input, [event.target.name]: event.target.value });
         setErrors(
