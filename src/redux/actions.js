@@ -34,7 +34,7 @@ export const loginUser = (input) => async dispatch => {
       payload: res.data
     })
     window.localStorage.setItem('token',res.data.token);
-    dispatch(testToken(res.data.token));
+    dispatch(testToken(window.localStorage.getItem('token')));
   } catch (error) {
     console.log(error)
   }

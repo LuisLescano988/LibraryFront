@@ -17,10 +17,11 @@ function Login() {
     };
 
     useEffect(()=>{
-        if(pass){
+        if(pass == true){
+            console.log(pass)
             navigate('/home')
         }
-    }, [pass, navigate])
+    }, [handlerSubmit])
 
     async function handlerSubmit(event) {
         event.preventDefault();
